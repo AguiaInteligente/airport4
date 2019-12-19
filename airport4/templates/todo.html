@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>That's all folks !</title>
+</head>
+<body>
+
+<h1>That's all folks !</h1>
+
+<form action="/leitura/" method="post" title="Dia do Mês">  {% csrf_token %}
+    <label> Dia do Mês: </label>
+    <input type="number" name="dia" />
+    <input type="submit" value="adicionar"/>
+</form>
+
+<h1> média da Temperatura: all_items.temperatura.mean() </h1>
+
+<form name="formulario",method="post">{% csrf_token %}
+
+<table border="1" width="700">
+<tr>
+    <td> ID </td>
+    <td> ID-SENSOR </td>
+     <td> Alerta </td>
+    <td> umid_ar </td>
+    <td> temperatura </td>
+    <td> umid_solo </td>
+    <td> Agua </td>
+    <td> gas </td>
+    <td> Data de Leitura </td>
+</tr>
+{% for i in all_items %}
+<tr>
+    <td>
+    {{ i.id }}</td>
+<td>
+    {{ i.ids }}</td>
+    <td>
+    {{ i.alerta }}</td>
+    <td>
+    {{ i.humidade_ar }}</td>
+    <td>
+    {{ i.temperatura }}</td>
+    <td>
+    {{ i.humidade_solo }}</td>
+    <td>
+    {{ i.presenca_agua }}</td>
+    <td>
+    {{ i.gas }}</td>
+
+    <td> {{ i.dataleitura }}</td>
+
+
+</tr>
+{% endfor %}
+
+</table>
+
+    <input type="submit" value="Update">
+
+</form>
+
+
+
+
+</body>
+</html>
+
+
